@@ -1,9 +1,18 @@
 @font-face {
 	font-family: "league-spartan";
-	src: url("../../assets/fonts/league-spartan/LeagueSpartan-VariableFont_wght.ttf");
+	src: url("./fonts/league-spartan/LeagueSpartan-VariableFont_wght.ttf"); /* Change the path to the font if needed */
 }
 
 :root {
+	--bg-color: #f6f6f6;
+	--text-color: #0a0a0a;
+	--header-text-color: #0a0a0a;
+	--border-color: rgba(0, 0, 0, 0.1);
+	--hover-bg: rgba(0, 0, 0, 0.1);
+	--button-bg: #f0f0f0;
+	--button-text: #0a0a0a;
+	--topic-selected-color: rgb(44, 98, 245);
+
 	--md-code-bg-color: #f5f5f5;
 	--md-inline-code-bg: #f4f4f4;
 	--md-code-block-bg: #f8f9fa;
@@ -41,6 +50,15 @@
 }
 
 :root.dark-mode {
+	--bg-color: #1e1e1e;
+	--text-color: #e0e0e0;
+	--header-text-color: #ffffff;
+	--border-color: rgba(255, 255, 255, 0.1);
+	--hover-bg: rgba(255, 255, 255, 0.1);
+	--button-bg: #2d2d2d;
+	--button-text: #e0e0e0;
+	--topic-selected-hover-bg: rgba(79, 128, 235, 0.2);
+
 	--md-code-bg-color: #2d2d2d;
 	--md-inline-code-bg: #2d2d2d;
 	--md-code-block-bg: #2d2d2d;
@@ -505,108 +523,6 @@ body {
 	font-size: larger;
 }
 
-.markdown-end-container {
-	display: flex;
-	width: 100%;
-	margin: 0 auto;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.markdown-end-previous,
-.markdown-end-next {
-	padding: 0.7rem;
-	border: solid 1px var(--md-button-container);
-	width: 100%;
-	text-align: left;
-	border-radius: 5px;
-	cursor: pointer;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-	gap: 0.3rem;
-	transition: all 0.2s ease;
-}
-
-.markdown-end-content-p {
-	display: flex;
-	align-items: end;
-	flex-direction: column;
-	gap: 0.3rem;
-}
-
-.markdown-end-content-n {
-	display: flex;
-	flex-direction: column;
-	gap: 0.3rem;
-}
-
-.markdown-end-icon {
-	width: 20px;
-	height: 20px;
-	opacity: 0.6;
-	transition: opacity 0.2s ease, transform 0.2s ease, filter 0.3s ease;
-	flex-shrink: 0;
-}
-
-.markdown-end-icon-previous {
-	width: 20px;
-	height: 20px;
-	opacity: 0.6;
-	transition: opacity 0.2s ease, transform 0.2s ease, filter 0.3s ease;
-	flex-shrink: 0;
-	transform: rotate(180deg);
-}
-
-:root.dark-mode .markdown-end-icon,
-:root.dark-mode .markdown-end-icon-previous {
-	filter: brightness(0) saturate(100%) invert(100%);
-}
-
-.markdown-end-next:hover .markdown-end-icon {
-	opacity: 1;
-	transform: translateX(3px);
-}
-
-.markdown-end-next:hover .markdown-end-icon-previous {
-	opacity: 1;
-	transform: rotate(180deg) translateX(3px);
-}
-
-.markdown-end-previous:hover,
-.markdown-end-next:hover {
-	border-color: var(--md-button-container-hover);
-}
-
-.markdown-end-previous:hover .markdown-end-title,
-.markdown-end-next:hover .markdown-end-title {
-	color: rgb(44, 98, 245);
-}
-
-.markdown-end-previous {
-	align-self: flex-start;
-}
-
-.markdown-end-next {
-	align-self: flex-end;
-}
-
-.markdown-end-label {
-	font-size: 0.85rem;
-	margin: 0;
-	padding: 0;
-	opacity: 0.7;
-	font-weight: 500;
-}
-
-.markdown-end-title {
-	font-size: 1.1rem;
-	margin: 0;
-	font-weight: 600;
-	transition: color 0.2s ease;
-}
-
 .markdown-calculation {
 	padding: 1rem;
 	font-family: "Courier New", Courier, monospace;
@@ -639,6 +555,13 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.25s ease;
 }
 
+:root.dark-mode .markdown-button-container,
+:root.dark-mode .code-copy-button {
+    background: var(--bg-color);
+    border: 1px solid var(--end-border-color);
+    color: var(--button-text);
+}
+
 .markdown-formatted-code-header {
 	width: 100%;
 	padding: 0.3em 0.7em 0.3em 0.7em;
@@ -662,9 +585,17 @@ body {
 	display: flex;
 	align-items: center;
 	gap: 0.4rem;
-	transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s ease;
+	transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s ease, border-color 0.25s ease;
 	align-self: flex-end;
 	margin-right: 1rem;
+}
+
+.code-copy-button:hover {
+	background-color: var(--hover-bg);
+}
+
+.code-copy-button:active {
+	transform: scale(0.95);
 }
 
 .code-copy-button:hover {
