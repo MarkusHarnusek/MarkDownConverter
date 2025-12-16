@@ -1,6 +1,6 @@
 @font-face {
 	font-family: "league-spartan";
-	src: url("./fonts/league-spartan/LeagueSpartan-VariableFont_wght.ttf"); /* Change the path to the font if needed */
+	src: url("./assets/fonts/league-spartan/LeagueSpartan-VariableFont_wght.ttf"); /* Change the path to the font if needed */
 }
 
 /* === UI Theme Colors (Light Mode) === */
