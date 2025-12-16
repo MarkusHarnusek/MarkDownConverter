@@ -110,7 +110,7 @@ class MarkdownConverter {
                                     <div class="markdown-formatted-code-header">
                                         <p class="code-lang">${currentFormattedCodeLang}</p>
                                         <button class="code-copy-button" onclick="copyCodeBlock(this)">
-                                            <img class="icon" src="assets/img/copy.svg" alt="copy-icon">
+                                            <img class="icon" src="${this.imagePath}copy.svg" alt="copy-icon">
                                             <span class="code-copy-text">Copy</span>
                                         </button>
                                     </div>
@@ -521,39 +521,6 @@ class MarkdownConverter {
 			return "<br>";
 		}
 
-		// End signature
-		if (line.trim() === "#end") {
-			let item = `<div class="markdown-end-container">`;
-
-			// If previous item exists
-			if (this.currentPageIndex !== 0) {
-				const previousPath = this.flatStructure[this.currentPageIndex - 1];
-				const previousName = this.getPageName(previousPath);
-				item += `<div class="markdown-end-next" data-path="${previousPath}">
-                            <img class="markdown-end-icon-previous" src="assets/img/arrow.svg" alt="next-icon"></img>
-                            <div class="markdown-end-content-p">
-                                <p class="markdown-end-label">Previous</p>
-                                <p class="markdown-end-title">${previousName}</p>
-                            </div>
-                         </div>`;
-			}
-
-			// If next item exists
-			if (this.currentPageIndex !== this.flatStructure.length - 1) {
-				const nextPath = this.flatStructure[this.currentPageIndex + 1];
-				const nextName = this.getPageName(nextPath);
-				item += `<div class="markdown-end-next" data-path="${nextPath}">
-                            <div class="markdown-end-content-n">
-                                <p class="markdown-end-label">Next</p>
-                                <p class="markdown-end-title">${nextName}</p>
-                            </div>
-                            <img class="markdown-end-icon" src="assets/img/arrow.svg" alt="next-icon"></img>
-                         </div>`;
-			}
-
-			return item;
-		}
-
 		return `<p class="markdown-paragraph">${this.parseInline(line)}</p>`;
 	}
 
@@ -669,13 +636,15 @@ class MarkdownConverter {
 	 */
 	generateSignatureHTML(signature) {
 		if (signature.type === "button") {
-			// Special handling for button signatures
+			// Button signatures: Create container div with optional ID and heading/body sections
 			let html = `<div class="markdown-button-container"${signature.id ? ` id="${signature.id}"` : ""}>`;
 
+			// Add button heading if present
 			if (signature.heading) {
 				html += `<div class="markdown-button-heading">${signature.heading}</div>`;
 			}
 
+			// Add all body paragraphs
 			for (const body of signature.bodies) {
 				html += `<div class="markdown-button-body">${body}</div>`;
 			}
@@ -683,24 +652,27 @@ class MarkdownConverter {
 			html += "</div>";
 			return html;
 		} else {
-			// Standard signature handling for other types
+			// Alert signatures (positive, warning, negative, info): Create semantic alert box
 			let html = `<div class="markdown-${signature.type}">`;
 
+			// If heading exists, add header section with icon and title
 			if (signature.heading) {
 				html += `<div class="markdown-signature-header">`;
+				// Choose icon image based on signature type (match CSS custom properties)
 				if (signature.type === "positive") {
-					html += `<img class="icon" src="assets/img/circle-check.svg" alt="positive-icon"></img>`;
+					html += `<img class="icon" src="${this.imagePath}circle-check.svg" alt="positive-icon"></img>`;
 				} else if (signature.type === "warning") {
-					html += `<img class="icon" src="assets/img/triangle-exclamation.svg" alt="warning-icon"></img>`;
+					html += `<img class="icon" src="${this.imagePath}triangle-exclamation.svg" alt="warning-icon"></img>`;
 				} else if (signature.type === "negative") {
-					html += `<img class="icon" src="assets/img/cancel.svg" alt="negative-icon"></img>`;
+					html += `<img class="icon" src="${this.imagePath}cancel.svg" alt="negative-icon"></img>`;
 				} else if (signature.type === "info") {
-					html += `<img class="icon" src="assets/img/circle-info.svg" alt="info-icon"></img>`;
+					html += `<img class="icon" src="${this.imagePath}circle-info.svg" alt="info-icon"></img>`;
 				}
 				html += `<h1 class="markdown-signature-heading">${signature.heading}</h1>`;
 				html += `</div>`;
 			}
 
+			// Add all body paragraphs
 			for (const body of signature.bodies) {
 				html += `<p class="markdown-signature-body">${body}</p>`;
 			}
@@ -738,6 +710,7 @@ class MarkdownConverter {
 	 * @returns {boolean} - True if line contains pipe characters
 	 */
 	isTableRow(line) {
+		// A table row contains pipe separators and is not empty
 		return line.trim().includes("|") && line.trim().length > 0;
 	}
 
@@ -747,6 +720,7 @@ class MarkdownConverter {
 	 * @returns {boolean} - True if line matches table separator pattern
 	 */
 	isTableSeparator(line) {
+		// Separator must contain pipes, hyphens, colons (for alignment), and whitespace only
 		return /^\s*\|[\s\-\|:]+\|\s*$/.test(line);
 	}
 
@@ -756,6 +730,7 @@ class MarkdownConverter {
 	 * @returns {string[]} - Array of header cell values
 	 */
 	extractTableHeaders(line) {
+		// Split by pipe, trim whitespace, remove empty cells (leading/trailing pipes)
 		return line
 			.split("|")
 			.map((cell) => cell.trim())
@@ -769,15 +744,20 @@ class MarkdownConverter {
 	 * @returns {string} - HTML table row string
 	 */
 	parseTableRow(line, isHeader) {
+		// Extract cells from pipe-separated row
 		const cells = line
 			.split("|")
 			.map((cell) => cell.trim())
 			.filter((cell) => cell.length > 0);
+		
+		// Use <th> for header rows, <td> for data rows
 		const tag = isHeader ? "th" : "td";
 		const className = isHeader ? "markdown-table-header" : "markdown-table-cell";
 
+		// Build table row HTML with proper styling classes
 		let html = '<tr class="markdown-table-row">';
 		for (const cell of cells) {
+			// Apply inline markdown parsing to cell content (bold, italic, links, etc.)
 			html += `<${tag} class="${className}">${this.parseInline(cell)}</${tag}>`;
 		}
 		html += "</tr>";
