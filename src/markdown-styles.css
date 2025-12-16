@@ -112,7 +112,7 @@
 	--md-cb-property: #e6e7c8; /* Light property/attribute name color */
 }
 
-/* General Styles */
+/* Base Body Styles */
 body {
 	font-family: "league-spartan", Arial, sans-serif;
 	line-height: 1.6;
@@ -120,7 +120,7 @@ body {
 	padding: 0;
 }
 
-/* Headings */
+/* Heading Styles */
 .markdown-heading {
 	font-weight: bold;
 	margin: 0.5em 0 0.25em;
@@ -150,12 +150,12 @@ body {
 	font-size: 0.875em;
 }
 
-/* Paragraphs */
+/* Paragraph Styles */
 .markdown-paragraph {
 	margin: 0.25em 0;
 }
 
-/* Lists */
+/* Unordered Lists */
 .markdown-list {
 	list-style-type: disc;
 	margin: 0.25em 0 0.25em 1.5em;
@@ -166,6 +166,7 @@ body {
 	margin: 0.25em 0;
 }
 
+/* Ordered Lists */
 .markdown-ordered-list {
 	list-style-type: decimal;
 	margin: 0.25em 0 0.25em 1.5em;
@@ -176,20 +177,23 @@ body {
 	margin: 0.25em 0;
 }
 
-/* Inline Elements */
+/* Bold Text */
 .markdown-bold {
 	font-weight: bold;
 }
 
+/* Italic Text */
 .markdown-italic {
 	font-style: italic;
 }
 
+/* Strikethrough Text */
 .markdown-strikethrough {
 	text-decoration: line-through;
 	opacity: 0.7;
 }
 
+/* Inline Code */
 .markdown-code {
 	font-family: monospace;
 	background-color: var(--md-inline-code-bg);
@@ -198,7 +202,7 @@ body {
 	transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Code Blocks */
+/* Standard Code Block */
 .markdown-code-block {
 	font-family: monospace;
 	background-color: var(--md-code-block-bg);
@@ -211,7 +215,7 @@ body {
 	transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
-/* Links */
+/* Standard Links */
 .markdown-link {
 	color: rgb(44, 98, 245);
 	text-decoration: none;
@@ -223,7 +227,7 @@ body {
 	color: rgba(44, 98, 245, 0.8);
 }
 
-/* Button Links */
+/* Button-styled Links */
 .markdown-button {
 	display: inline-block;
 	background-color: rgb(44, 98, 245);
@@ -243,7 +247,7 @@ body {
 	transform: translateY(-1px);
 }
 
-/* Custom Signature Blocks */
+/* Success/Positive Block */
 .markdown-positive {
 	background-color: var(--md-positive-bg);
 	border-left: 4px solid rgb(34, 197, 94);
@@ -256,6 +260,7 @@ body {
 	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Warning Block */
 .markdown-warning {
 	background-color: var(--md-warning-bg);
 	border-left: 3px solid rgb(245, 158, 11);
@@ -268,6 +273,7 @@ body {
 	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Error/Negative Block */
 .markdown-negative {
 	background-color: var(--md-negative-bg);
 	border-left: 4px solid rgb(239, 68, 68);
@@ -280,6 +286,7 @@ body {
 	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Info Block */
 .markdown-info {
 	background-color: var(--md-info-bg);
 	border-left: 4px solid rgb(59, 130, 246);
@@ -292,7 +299,7 @@ body {
 	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Signature Block Components */
+/* Signature Block Sub-components */
 .markdown-signature-heading {
 	margin: 0 0 0.25rem 0;
 	font-weight: 600;
@@ -318,6 +325,7 @@ body {
 	margin-top: -0.37rem;
 }
 
+/* Signature Block Icons - Light Mode */
 .markdown-positive .markdown-signature-header .icon {
 	filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(106deg) brightness(91%) contrast(97%);
 	transition: filter 0.3s ease;
@@ -337,6 +345,7 @@ body {
 	transition: filter 0.3s ease;
 }
 
+/* Signature Block Icons - Dark Mode */
 :root.dark-mode .markdown-positive .markdown-signature-header .icon {
 	filter: brightness(0) saturate(100%) invert(79%) sepia(23%) saturate(864%) hue-rotate(88deg) brightness(96%) contrast(89%);
 	transition: filter 0.3s ease;
@@ -356,6 +365,7 @@ body {
 	transition: filter 0.3s ease;
 }
 
+/* Signature Block Heading Styles */
 .markdown-positive-heading {
 	background-color: rgba(34, 197, 94, 0.2);
 	margin: -0.5rem -0.75rem 0.25rem -0.75rem;
@@ -428,7 +438,7 @@ body {
 	margin: 0.5rem 0;
 }
 
-/* Tables */
+/* Main Table Container */
 .markdown-table {
 	border-collapse: separate;
 	border-spacing: 0;
@@ -443,6 +453,7 @@ body {
 	-webkit-overflow-scrolling: touch;
 }
 
+/* Table Header Cells */
 .markdown-table-header {
 	background-color: var(--md-table-header-bg);
 	color: var(--md-table-header-color);
@@ -459,6 +470,7 @@ body {
 	border-right: none;
 }
 
+/* Table Data Cells */
 .markdown-table-cell {
 	padding: 0.5rem 0.75rem;
 	border: 1px solid var(--md-table-border);
@@ -472,6 +484,7 @@ body {
 	border-right: none;
 }
 
+/* Table Row Styling */
 .markdown-table-row:last-child .markdown-table-cell {
 	border-bottom: none;
 }
@@ -485,6 +498,7 @@ body {
 	transition: background-color 0.2s ease-in-out;
 }
 
+/* Desktop Table Styling */
 @media (min-width: 769px) {
 	.markdown-table {
 		display: table;
@@ -524,6 +538,7 @@ body {
 	}
 }
 
+/* Button Container Box */
 .markdown-button-container {
 	padding: 1rem;
 	border: solid 2px var(--md-button-container);
@@ -536,17 +551,20 @@ body {
 	border: solid 2px var(--md-button-container-hover);
 }
 
+/* Button Container Heading */
 .markdown-button-heading {
 	font-weight: 600;
 	font-size: larger;
 }
 
+/* Calculation Display */
 .markdown-calculation {
 	padding: 1rem;
 	font-family: "Courier New", Courier, monospace;
 	transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
+/* Main Formatted Code Container */
 .markdown-formatted-code {
 	font-family: monospace;
 	background-color: var(--md-code-bg-color);
@@ -558,28 +576,7 @@ body {
 	overflow: visible;
 }
 
-/* Smooth transitions for markdown components on theme change */
-.markdown-table,
-.markdown-table-header,
-.markdown-table-cell,
-.markdown-button-container,
-.markdown-positive,
-.markdown-warning,
-.markdown-negative,
-.markdown-info,
-.markdown-formatted-code,
-.markdown-code-block,
-.code-copy-button {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.25s ease;
-}
-
-:root.dark-mode .markdown-button-container,
-:root.dark-mode .code-copy-button {
-    background: var(--bg-color);
-    border: 1px solid var(--end-border-color);
-    color: var(--button-text);
-}
-
+/* Formatted Code Header */
 .markdown-formatted-code-header {
 	width: 100%;
 	padding: 0.3em 0.7em 0.3em 0.7em;
@@ -591,6 +588,53 @@ body {
 	overflow: visible;
 }
 
+/* Code Language Label */
+.code-lang {
+	font-family: "league-spartan";
+	user-select: none;
+	align-self: start;
+	color: var(--md-greyed-out);
+	font-size: 1.1em;
+	font-weight: 400;
+	margin: 0;
+	padding: 0;
+}
+
+/* Formatted Code Content Container */
+.markdown-formatted-code-content {
+	display: flex;
+	flex-direction: row;
+	align-self: flex-start;
+	gap: 0.5rem;
+	margin: 0;
+	overflow-x: auto;
+}
+
+/* Code Line Numbers */
+.markdown-formatted-code-line-numbers {
+	min-width: 1.5em;
+	text-align: right;
+	color: #888;
+	user-select: none;
+	font-family: monospace;
+	padding-right: 0.5em;
+	line-height: normal;
+}
+
+/* Code Lines */
+.markdown-formatted-code-content-lines {
+	flex: 1;
+	white-space: pre-wrap;
+	font-family: monospace;
+	line-height: normal;
+}
+
+.markdown-formatted-code-content-lines p {
+	margin: 0;
+	padding: 0;
+}
+
+/* Copy Button */
 .code-copy-button {
 	background-color: var(--button-bg);
 	color: var(--button-text);
@@ -616,110 +660,96 @@ body {
 	transform: scale(0.95);
 }
 
-.code-copy-button:hover {
-	background-color: var(--hover-bg);
-}
-
-.code-copy-button:active {
-	transform: scale(0.95);
-}
-
+/* Copy Button Icon */
 .code-copy-button .icon {
 	width: 14px;
 	height: 14px;
 }
 
+/* Copy Button Text */
 .code-copy-text {
 	line-height: 1;
 }
 
-.code-lang {
-	font-family: "league-spartan";
-	user-select: none;
-	align-self: start;
-	color: var(--md-greyed-out);
-	font-size: 1.1em;
-	font-weight: 400;
-	margin: 0;
-	padding: 0;
-}
-
-.markdown-formatted-code-content {
-	display: flex;
-	flex-direction: row;
-	align-self: flex-start;
-	gap: 0.5rem;
-	margin: 0;
-	overflow-x: auto;
-}
-
-.markdown-formatted-code-line-numbers {
-	min-width: 1.5em;
-	text-align: right;
-	color: #888;
-	user-select: none;
-	font-family: monospace;
-	padding-right: 0.5em;
-	line-height: normal;
-}
-
-.markdown-formatted-code-content-lines {
-	flex: 1;
-	white-space: pre-wrap;
-	font-family: monospace;
-	line-height: normal;
-}
-
-.markdown-formatted-code-content-lines p {
-	margin: 0;
-	padding: 0;
-}
-
-/* Markdown Code Styles */
+/* Default Code Text */
 .markdown-code-text {
 	color: var(--md-cb-text);
 }
 
+/* Comments */
 .markdown-code-comment {
 	color: var(--md-cb-comment);
 }
 
-.markdown-code-keyword {
-	color: var(--md-cb-keyword);
-}
-
+/* Numbers & Numeric Literals */
 .markdown-code-number {
 	color: var(--md-cb-number);
 }
 
+/* Keywords */
+.markdown-code-keyword {
+	color: var(--md-cb-keyword);
+}
+
+/* Hash Symbols & Special Characters */
 .markdown-code-hash {
 	color: var(--md-cb-hash);
 }
 
+/* Question Marks & Other Operators */
 .markdown-code-qmark {
 	color: var(--md-cb-qmark);
 }
 
+/* Round Brackets/Parentheses */
 .markdown-code-brackets {
 	color: var(--md-cb-brc);
 }
 
+/* Curly Brackets/Braces */
 .markdown-code-curly-brackets {
 	color: var(--md-cb-cbrc);
 }
 
+/* Square Brackets */
 .markdown-code-square-brackets {
 	color: var(--md-cb-sbrc);
 }
 
+/* Dots/Periods */
 .markdown-code-dot {
 	color: var(--md-cb-dot);
 }
 
+/* Objects & Class Names */
 .markdown-code-object {
 	color: var(--md-cb-object);
 }
 
+/* Properties & Attributes */
 .markdown-code-property {
 	color: var(--md-cb-property);
+}
+
+/* Smooth transitions for markdown components on theme change */
+.markdown-table,
+.markdown-table-header,
+.markdown-table-cell,
+.markdown-button-container,
+.markdown-positive,
+.markdown-warning,
+.markdown-negative,
+.markdown-info,
+.markdown-formatted-code,
+.markdown-code-block,
+.code-copy-button {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.25s ease;
+}
+
+/* Dark Mode Button & Container Styling */
+:root.dark-mode .markdown-button-container,
+:root.dark-mode .code-copy-button {
+    background: var(--bg-color);
+    border: 1px solid var(--end-border-color);
+    color: var(--button-text);
 }
