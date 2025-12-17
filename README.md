@@ -35,6 +35,8 @@ The MarkDown Converter is a web-based tool designed to convert Markdown files in
    document.body.innerHTML = htmlContent;
    ```
 
+Note that empty lines will be display as a `<br>` in the html to enhance spacing flexibility.
+
 ## Q&A
 
 **Q: Can I use custom fonts?**
