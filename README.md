@@ -56,3 +56,7 @@ The Markdown Converter is a powerful tool to streamline your Markdown-to-HTML wo
 ## Feedback and Contributions
 
 I value your feedback and contributions to improve the Markdown Converter! If you encounter any issues, have suggestions, or want to request new features, please feel free to open an issue in the repository. Contributions are also welcome—whether it's fixing bugs, adding new features, or improving documentation.
+
+## Credits
+
+Some style aspects have been codeveloped with [7XDev](https://github.com/7XDev)
