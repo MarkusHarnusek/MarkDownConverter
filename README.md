@@ -48,3 +48,7 @@ A: Yes, the Markdown Converter comes with built-in support for both dark and lig
 
 **Q: Can it load Markdown files?**
 A: Yes, you can use the `loadMarkdown(path)` function to load and convert Markdown content directly from a file.
+
+## Feedback and Contributions
+
+I value your feedback and contributions to improve the Markdown Converter! If you encounter any issues, have suggestions, or want to request new features, please feel free to open an issue in the repository. Contributions are also welcome—whether it's fixing bugs, adding new features, or improving documentation.
