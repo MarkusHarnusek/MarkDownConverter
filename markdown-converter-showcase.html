@@ -5,13 +5,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Markdown Converter Showcase</title>
 
-		<link rel="stylesheet" href="../doc/styles/styles.css" />
-		<link rel="stylesheet" href="../doc/styles/markdown-styles.css" />
+		<link rel="stylesheet" href="./src/markdown-styles.css" />
 
 		<style>
 			body {
 				padding: 2rem;
 				font-family: "league-spartan", sans-serif;
+				background-color: var(--bg-color);
+				color: var(--text-color);
 			}
 
 			.container {
@@ -71,34 +72,7 @@
 		<div class="container">
 			<div class="editor-panel">
 				<h1>Markdown Input</h1>
-				<textarea
-					id="markdown-input"
-					placeholder="Enter your markdown here...
-# Heading 1
-## Heading 2
-
-**Bold text** and *italic text*
-
-- List item 1
-- List item 2
-
-1. Numbered item
-2. Another item
-
-`inline code`
-
-#+h Positive heading
-#+b Positive body text
-
-#wh Warning heading
-#wb Warning body text
-
-#-h Negative heading
-#-b Negative body text
-
-#ih Info heading
-#ib Info body text"
-				></textarea>
+				<textarea id="markdown-input" placeholder="Enter your markdown here..."></textarea>
 			</div>
 
 			<div class="preview-panel">
@@ -108,7 +82,7 @@
 		</div>
 
 		<script type="module">
-			import MarkdownConverter from "../doc/scripts/md-converter.js";
+			import MarkdownConverter from "./src/markdown-converter.js";
 
 			const converter = new MarkdownConverter([], []);
 			const input = document.getElementById("markdown-input");

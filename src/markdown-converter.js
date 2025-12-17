@@ -10,8 +10,8 @@
  * - Navigation links between pages
  */
 class MarkdownConverter {
-	/** @type {path} - The pah where the image assets are found */
-	imagePath = `./assets/img/`;
+	/** @type {path} - The path where the image assets are found */
+	imagePath = `./src/assets/img/`;
 
 	/** @type {number} - Counter for unique heading IDs */
 	headingCount;

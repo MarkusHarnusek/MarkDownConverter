@@ -666,6 +666,18 @@ body {
 	height: 14px;
 }
 
+/* Make copy SVG adapt to theme by using CSS filters (svg file is an external <img>) */
+.code-copy-button .icon {
+	transition: filter 0.25s ease;
+	/* default: show as provided (dark path on light backgrounds) */
+	filter: none;
+}
+
+:root.dark-mode .code-copy-button .icon {
+	/* invert the icon for dark backgrounds (black -> white) */
+	filter: invert(1) brightness(1.1) contrast(1);
+}
+
 /* Copy Button Text */
 .code-copy-text {
 	line-height: 1;
