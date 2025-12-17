@@ -59,4 +59,4 @@ I value your feedback and contributions to improve the Markdown Converter! If yo
 
 ## Credits
 
-Some style aspects have been codeveloped with [7XDev](https://github.com/7XDev)
+Some style aspects have been codeveloped by [7XDev](https://github.com/7XDev)
