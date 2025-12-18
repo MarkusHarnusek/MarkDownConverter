@@ -135,6 +135,13 @@
 				const button = document.getElementById("themeToggle");
 				button.querySelector(".icon-text").textContent = isDark ? "Light Mode" : "Dark Mode";
 			}
+
+			function toggleSources(id) {
+				const element = document.getElementById(id);
+				if (element) {
+					element.classList.toggle('expanded');
+				}
+			}
 		</script>
 	</body>
 </html>

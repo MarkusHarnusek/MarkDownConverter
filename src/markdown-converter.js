@@ -817,8 +817,7 @@ class MarkdownConverter {
 		let html = `<div class="markdown-sources" id="${uniqueId}">`;
 		html += `<div class="markdown-sources-header" onclick="toggleSources('${uniqueId}')">`;
 		html += `<span class="markdown-sources-count">${displayCount}</span>`;
-		html += `<span class="markdown-sources-label">Quellen</span>`;
-		html += `<img class="markdown-sources-chevron" src="${this.imagePath}chevron-down.svg" alt="expand">`;
+		html += `<span class="markdown-sources-label">Sources</span>`;
 		html += `</div>`;
 		html += `<div class="markdown-sources-list">`;
 
