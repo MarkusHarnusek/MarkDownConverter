@@ -765,3 +765,111 @@ body {
     border: 1px solid var(--end-border-color);
     color: var(--button-text);
 }
+
+/* === Sources Block === */
+.markdown-sources {
+	background-color: var(--md-info-bg);
+	border-left: 4px solid rgb(59, 130, 246);
+	padding: 0;
+	margin: 0.5rem 0;
+	border-radius: 3px;
+	font-family: "league-spartan", Arial, sans-serif;
+	overflow: hidden;
+	transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.markdown-sources-header {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 0.5rem 0.75rem;
+	cursor: pointer;
+	user-select: none;
+	transition: background-color 0.2s ease;
+}
+
+.markdown-sources-header:hover {
+	background-color: var(--md-info-bg);
+	filter: brightness(0.95);
+}
+
+.markdown-sources-count {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 24px;
+	height: 24px;
+	background-color: rgb(59, 130, 246);
+	color: white;
+	border-radius: 50%;
+	font-size: 0.85em;
+	font-weight: 600;
+	padding: 0 4px;
+}
+
+.markdown-sources-label {
+	font-weight: 500;
+	color: var(--md-info-color);
+	flex: 1;
+}
+
+.markdown-sources-chevron {
+	width: 16px;
+	height: 16px;
+	transition: transform 0.3s ease, filter 0.3s ease;
+	filter: brightness(0) saturate(100%) invert(19%) sepia(95%) saturate(2733%) hue-rotate(224deg) brightness(91%) contrast(95%);
+}
+
+.markdown-sources.expanded .markdown-sources-chevron {
+	transform: rotate(180deg);
+}
+
+:root.dark-mode .markdown-sources-chevron {
+	filter: brightness(0) saturate(100%) invert(75%) sepia(26%) saturate(741%) hue-rotate(188deg) brightness(101%) contrast(98%);
+}
+
+.markdown-sources-list {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.3s ease, padding 0.3s ease;
+	background-color: rgba(59, 130, 246, 0.05);
+}
+
+.markdown-sources.expanded .markdown-sources-list {
+	max-height: 500px;
+	padding: 0.5rem 0;
+}
+
+.markdown-sources-item {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 0.4rem 0.75rem 0.4rem 1rem;
+	color: var(--md-info-color);
+	text-decoration: none;
+	transition: background-color 0.2s ease;
+}
+
+.markdown-sources-item:hover {
+	background-color: rgba(59, 130, 246, 0.1);
+	text-decoration: underline;
+}
+
+.markdown-sources-item-number {
+	font-weight: 600;
+	min-width: 1.5em;
+	color: rgb(59, 130, 246);
+}
+
+.markdown-sources-item-text {
+	flex: 1;
+}
+
+/* Dark mode adjustments for sources */
+:root.dark-mode .markdown-sources-list {
+	background-color: rgba(59, 130, 246, 0.1);
+}
+
+:root.dark-mode .markdown-sources-item:hover {
+	background-color: rgba(59, 130, 246, 0.15);
+}
