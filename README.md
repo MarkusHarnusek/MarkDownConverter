@@ -16,6 +16,7 @@ The MarkDown Converter is a web-based tool designed to convert Markdown files in
 - **Calculations**: Wrap calculations in `#cal` tags to create custom-styled calculation elements.
 
 - **Enhanced Code Blocks**: Create visually appealing code blocks with line numbers, syntax highlighting, and a copy-to-clipboard button. Simply enclose your code with `#codefs(<programming-language>)` and `#codefe` tags.
+- **Source Element**: Link sources easily with the `#src[<Source Description>](<Link>)`. Multiple source elements in sequence will be joined as a group of sources. 
 
 ## How to Import and Use
 1. Clone the repository to your local machine.
@@ -63,7 +64,7 @@ I value your feedback and contributions to improve the Markdown Converter! If yo
 
 ### Co-Authoring
 
-Some style aspects have been codeveloped by [7XDev](https://github.com/7XDev)
+Some style aspects have been co-developed by [7XDev](https://github.com/7XDev)
 
 ### Icons
 #### Flaticon Icons
